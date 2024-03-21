@@ -1,1 +1,360 @@
-<p>empleados works!</p>
+<nav class="navbar navbar-dark bg-dark">
+  <a href="/" class="navbar-brand">REGISTRO DE EMPRESA</a>
+</nav>
+
+<div class="agregar_contenedor"></div>
+<div class="row mt-5">
+  <div class="card">
+    <div class="card-body">
+      <form
+        id="formulario"
+        name="formulario"
+        #f="ngForm"
+        (ngSubmit)="AgregarValor()"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="" class="control-label">cipadre</label>
+          <input
+            type="text"
+            [(ngModel)]="user.cipadre"
+            name="cipadre"
+            placeholder="DIGITE LA cipadre"
+            class="form-control"
+            autofocus
+          />
+        </div>
+        <div class="form-group">
+          <label for="" class="control-label">nom1</label>
+          <input
+            type="text"
+            [(ngModel)]="user.nom1"
+            name="nom1"
+            placeholder="DIGITE LA nom1"
+            class="form-control"
+            autofocus
+          />
+        </div>
+        <div class="form-group">
+          <label for="" class="control-label">nom2</label>
+          <input
+            type="text"
+            [(ngModel)]="user.nom2"
+            name="nom2"
+            placeholder="DIGITE EL nom2"
+            class="form-control"
+            autofocus
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="" class="control-label">ape1</label>
+          <input
+            type="text"
+            [(ngModel)]="user.ape1"
+            name="ape1"
+            placeholder="DIGITE EL ape1"
+            class="form-control"
+            autofocus
+          />
+        </div>
+        <div class="form-group">
+          <label for="" class="control-label">ape2</label>
+          <input
+            type="text"
+            [(ngModel)]="user.ape2"
+            name="ape2"
+            placeholder="DIGITE EL ape2"
+            class="form-control"
+            autofocus
+          />
+        </div>
+        <div class="form-group">
+          <label for="" class="control-label">Sexo</label>
+          <input
+            type="text"
+            [(ngModel)]="user.sexo"
+            name="sexo"
+            placeholder="Digite el sexo"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="dir" class="control-label">Dirección</label>
+          <input
+            type="text"
+            [(ngModel)]="user.dir"
+            name="dir"
+            placeholder="Digite la dirección"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="lugarnac" class="control-label"
+            >Lugar de Nacimiento</label
+          >
+          <input
+            type="text"
+            [(ngModel)]="user.lugarnac"
+            name="lugarnac"
+            placeholder="Digite el lugar de nacimiento"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="teldomicilio" class="control-label"
+            >Teléfono Domicilio</label
+          >
+          <input
+            type="text"
+            [(ngModel)]="user.teldomicilio"
+            name="teldomicilio"
+            placeholder="Digite el teléfono domicilio"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="control-label">Email</label>
+          <input
+            type="email"
+            [(ngModel)]="user.email"
+            name="email"
+            placeholder="Digite el correo electrónico"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="etnia" class="control-label">Etnia</label>
+          <input
+            type="text"
+            [(ngModel)]="user.etnia"
+            name="etnia"
+            placeholder="Digite la etnia"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="estcivil" class="control-label">Estado Civil</label>
+          <input
+            type="text"
+            [(ngModel)]="user.estcivil"
+            name="estcivil"
+            placeholder="Digite el estado civil"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="colorpelo" class="control-label">Color de Pelo</label>
+          <input
+            type="text"
+            [(ngModel)]="user.colorpelo"
+            name="colorpelo"
+            placeholder="Digite el color de pelo"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="estatura" class="control-label">Estatura</label>
+          <input
+            type="number"
+            [(ngModel)]="user.estatura"
+            name="estatura"
+            placeholder="Digite la estatura"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="peso" class="control-label">Peso</label>
+          <input
+            type="number"
+            [(ngModel)]="user.peso"
+            name="peso"
+            placeholder="Digite el peso"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="idniveledu" class="control-label"
+            >ID Nivel Educativo</label
+          >
+          <input
+            type="number"
+            [(ngModel)]="user.idniveledu"
+            name="idniveledu"
+            placeholder="Digite el ID del nivel educativo"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="cargo" class="control-label">Cargo</label>
+          <input
+            type="text"
+            [(ngModel)]="user.cargo"
+            name="cargo"
+            placeholder="Digite el cargo"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="contrato" class="control-label">Contrato</label>
+          <input
+            type="text"
+            [(ngModel)]="user.contrato"
+            name="contrato"
+            placeholder="Digite el contrato"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="departamento" class="control-label">Departamento</label>
+          <input
+            type="text"
+            [(ngModel)]="user.departamento"
+            name="departamento"
+            placeholder="Digite el departamento"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="ubicacion" class="control-label">Ubicación</label>
+          <input
+            type="text"
+            [(ngModel)]="user.ubicacion"
+            name="ubicacion"
+            placeholder="Digite la ubicación"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="ubicacion" class="control-label">foto</label>
+          <input
+            type="text"
+            [(ngModel)]="user.foto"
+            name="foto"
+            placeholder="Digite la foto"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="ubicacion" class="control-label">estado</label>
+          <input
+            type="text"
+            [(ngModel)]="user.estado"
+            name="estado"
+            placeholder="Digite la estado"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="ubicacion" class="control-label">clave</label>
+          <input
+            type="text"
+            [(ngModel)]="user.clave"
+            name="clave"
+            placeholder="Digite la clave"
+            class="form-control"
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          formnovalidate
+          value="Save"
+          onclick="javascript:alert('Registro Almacenado')"
+        >
+          Agregar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<br />
+<div class="container mt-4">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">CI</th>
+          <th scope="col">Cipadre</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Sexo</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Lugar de Nacimiento</th>
+          <th scope="col">Teléfono Domicilio</th>
+          <th scope="col">Email</th>
+          <th scope="col">Etnia</th>
+          <th scope="col">Estado Civil</th>
+          <th scope="col">Color de Pelo</th>
+          <th scope="col">Estatura</th>
+          <th scope="col">Peso</th>
+          <th scope="col">Nivel Educativo</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Contrato</th>
+          <th scope="col">Departamento</th>
+          <th scope="col">Ubicación</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Clave</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let User of TUser">
+          <td>{{ User.CI }}</td>
+          <td>{{ User.cipadre }}</td>
+          <td>{{ User.nom1 }} {{ User.nom2 }}</td>
+          <td>{{ User.ape1 }} {{ User.ape2 }}</td>
+          <td>{{ User.sexo }}</td>
+          <td>{{ User.dir }}</td>
+          <td>{{ User.lugarnac }}</td>
+          <td>{{ User.teldomicilio }}</td>
+          <td>{{ User.email }}</td>
+          <td>{{ User.etnia }}</td>
+          <td>{{ User.estcivil }}</td>
+          <td>{{ User.colorpelo }}</td>
+          <td>{{ User.estatura }}</td>
+          <td>{{ User.peso }}</td>
+          <td>{{ User.idniveledu }}</td>
+          <td>{{ User.cargo }}</td>
+          <td>{{ User.contrato }}</td>
+          <td>{{ User.departamento }}</td>
+          <td>{{ User.ubicacion }}</td>
+          <td>{{ User.estado }}</td>
+          <td>{{ User.clave }}</td>
+          <td>
+            <div>
+              <button
+                class="btn btn-danger btn-sm w-100"
+                (click)="EliminarData(User.idempresa)"
+              >
+                Eliminar
+              </button>
+            </div>
+            <div>
+              <button
+                class="btn btn-success btn-sm w-100"
+                [routerLink]="['/empresa/edit', User.idempresa]"
+              >
+                Actualizar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

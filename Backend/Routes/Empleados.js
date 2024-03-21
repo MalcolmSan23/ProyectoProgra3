@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 const EmpleadosController = require('../Controllers/EmpleadosController');
 router.get('/', EmpleadosController.list);
 router.post('/', EmpleadosController.save);
