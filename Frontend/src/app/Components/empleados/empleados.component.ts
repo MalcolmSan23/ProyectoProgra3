@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleados } from '../../Interface/user';
 import { DataService } from '../../Services/data.service';
+import { ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-empleados',
@@ -8,6 +9,8 @@ import { DataService } from '../../Services/data.service';
   styleUrls: ['./empleados.component.css'],
 })
 export class EmpleadosComponent implements OnInit {
+  @ViewChild('htmlData') htmlData!: ElementRef;
+  filterPost = '';
   TUser: any = [];
   user: Empleados = {
     CI: 111,
@@ -36,10 +39,18 @@ export class EmpleadosComponent implements OnInit {
     clave: null,
   };
 
+  NivelEdu: any;  
   constructor(private Data: DataService) {}
 
   ngOnInit(): void {
+    this.getDropListNivelEdu();
     this.getUser();
+  }
+
+  getDropListNivelEdu() {
+    this.Data.getDropListNivelEdu().subscribe((data:any)=>{
+      this.NivelEdu=data;
+    })
   }
 
   getUser() {

@@ -1,18 +1,24 @@
 <nav class="navbar navbar-dark bg-dark">
-  <a href="/" class="navbar-brand">REGISTRO DE EMPRESA</a>
+  <a href="/" class="navbar-brand">EMPLEADO</a>
 </nav>
 
-<div class="agregar_contenedor"></div>
 <div class="row mt-5">
   <div class="card">
     <div class="card-body">
-      <form
-        id="formulario"
-        name="formulario"
-        #f="ngForm"
-        (ngSubmit)="AgregarValor()"
-        novalidate
-      >
+      <form action="">
+        <div class="form-group">
+          <label for="" class="control-label" hidden>Registro No.</label>
+          <input
+            type="text"
+            readonly="readonly"
+            [(ngModel)]="user.CI"
+            na
+            class="form-control"
+            required
+            hidden
+          />
+        </div>
+
         <div class="form-group">
           <label for="" class="control-label">cipadre</label>
           <input
@@ -183,21 +189,16 @@
         </div>
 
         <div class="form-group">
-          <option>Seleccione el Nivel de Educacion</option>
-          <select
-            class="form-control"
-            size="1"
-            [(ngModel)]="user.idniveledu"
-            name="idsuc"
-            required
+          <label for="idniveledu" class="control-label"
+            >ID Nivel Educativo</label
           >
-            <option
-              *ngFor="let lista of NivelEdu"
-              value="{{ lista.idniveledu }}"
-            >
-              {{ lista.nombrenivel }}
-            </option>
-          </select>
+          <input
+            type="number"
+            [(ngModel)]="user.idniveledu"
+            name="idniveledu"
+            placeholder="Digite el ID del nivel educativo"
+            class="form-control"
+          />
         </div>
 
         <div class="form-group">
@@ -275,101 +276,13 @@
           />
         </div>
         <button
-          type="submit"
-          class="btn btn-primary"
-          formnovalidate
-          value="Save"
-          onclick="javascript:alert('Registro Almacenado')"
+          class="btn btn-success btn-block"
+          (click)="updateUser()"
+          onclick="javascript:alert('Registro Actualizado')"
         >
-          Agregar
+          Actualizar
         </button>
-        <div class="form-group">
-          <input
-            type="text"
-            class="form-control"
-            name="filterPost"
-            placeholder="Digite el Empleado que desea Buscar"
-            [(ngModel)]="filterPost"
-          />
-        </div>
       </form>
     </div>
-  </div>
-</div>
-<br />
-<div class="container mt-4">
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">CI</th>
-          <th scope="col">Cipadre</th>
-          <th scope="col">Nombres</th>
-          <th scope="col">Apellidos</th>
-          <th scope="col">Sexo</th>
-          <th scope="col">Dirección</th>
-          <th scope="col">Lugar de Nacimiento</th>
-          <th scope="col">Teléfono Domicilio</th>
-          <th scope="col">Email</th>
-          <th scope="col">Etnia</th>
-          <th scope="col">Estado Civil</th>
-          <th scope="col">Color de Pelo</th>
-          <th scope="col">Estatura</th>
-          <th scope="col">Peso</th>
-          <th scope="col">Nivel Educativo</th>
-          <th scope="col">Cargo</th>
-          <th scope="col">Contrato</th>
-          <th scope="col">Departamento</th>
-          <th scope="col">Ubicación</th>
-          <th scope="col">Estado</th>
-          <th scope="col">Clave</th>
-          <th scope="col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let User of TUser | filterempleados:filterPost">
-          <td>{{ User.CI }}</td>
-          <td>{{ User.cipadre }}</td>
-          <td>{{ User.nom1 }} {{ User.nom2 }}</td>
-          <td>{{ User.ape1 }} {{ User.ape2 }}</td>
-          <td>{{ User.sexo }}</td>
-          <td>{{ User.dir }}</td>
-          <td>{{ User.lugarnac }}</td>
-          <td>{{ User.teldomicilio }}</td>
-          <td>{{ User.email }}</td>
-          <td>{{ User.etnia }}</td>
-          <td>{{ User.estcivil }}</td>
-          <td>{{ User.colorpelo }}</td>
-          <td>{{ User.estatura }}</td>
-          <td>{{ User.peso }}</td>
-          <td>{{ User.idniveledu }}</td>
-          <td>{{ User.cargo }}</td>
-          <td>{{ User.contrato }}</td>
-          <td>{{ User.departamento }}</td>
-          <td>{{ User.ubicacion }}</td>
-          <td>{{ User.estado }}</td>
-          <td>{{ User.clave }}</td>
-          <td>
-            <div>
-              <button
-                class="btn btn-danger btn-sm w-100"
-                (click)="EliminarData(User.CI)"
-                onclick="javascript:alert('Registro Eliminado')"
-              >
-                Eliminar
-              </button>
-            </div>
-            <div>
-              <button
-                class="btn btn-success btn-sm w-100"
-                [routerLink]="['/empleados/edit', User.CI]"
-              >
-                Actualizar
-              </button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </div>
