@@ -11,6 +11,10 @@ export class DataService {
   API_URI = 'http://localhost:3000/api';
   constructor(private http: HttpClient, private router: Router) {}
 
+  getDropListNivelEdu(): Observable<any[]> {
+    return this.http.get<any>(this.API_URI + '/niveledu');
+  }
+
   getAll(url: string) {
     return this.http.get(`${this.API_URI}` + url);
   }
