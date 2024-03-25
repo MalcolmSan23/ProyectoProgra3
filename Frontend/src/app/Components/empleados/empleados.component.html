@@ -339,7 +339,8 @@
             <div>
               <button
                 class="btn btn-danger btn-sm w-100"
-                (click)="EliminarData(User.idempresa)"
+                (click)="EliminarData(User.CI)"
+                onclick="javascript:alert('Registro Eliminado')" 
               >
                 Eliminar
               </button>
@@ -347,7 +348,7 @@
             <div>
               <button
                 class="btn btn-success btn-sm w-100"
-                [routerLink]="['/empresa/edit', User.idempresa]"
+                [routerLink]="['/empleados/edit', User.CI]"
               >
                 Actualizar
               </button>
