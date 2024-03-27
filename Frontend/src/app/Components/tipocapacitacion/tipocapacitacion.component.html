@@ -1,0 +1,19 @@
+<div class="form-group">
+    <label for="" class="control-label">ID Tipo de Capacitación</label>
+    <input type="text" readonly="readonly" [(ngModel)]="user.idtipocapa" name="idtipocapa" placeholder="ID Tipo de Capacitación" class="form-control" required>
+</div>
+
+<div class="form-group">
+    <label for="" class="control-label">Tipo de Capacitación</label>
+    <input type="text" readonly="readonly" [(ngModel)]="user.tipocapa" name="tipocapa" placeholder="Tipo de Capacitación" class="form-control" required>
+</div>
+
+<div class="form-group">
+    <label for="" class="control-label">Estado</label>
+    <input type="text" readonly="readonly" [(ngModel)]="user.estado" name="estado" placeholder="Estado" class="form-control" required>
+</div>
+
+<button class="btn btn-success btn-block" (click)="updateUser()" onclick="javascript:alert('Tipo de Capacitación Actualizado')">
+    Actualizar
+</button>
+

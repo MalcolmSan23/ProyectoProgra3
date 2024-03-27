@@ -4,6 +4,7 @@ export interface User {
   estado?: string;
 }
 
+
 export interface Empleados {
   CI?: number | undefined;
   cipadre?: number | null;
@@ -30,3 +31,21 @@ export interface Empleados {
   foto?: Blob | null;
   clave?: string | null;
 }
+
+export interface Facultad {
+  idfacultad?: | null,
+facultad?:| null,
+estado?:string |null,
+}
+export interface Tipocapacitacion {
+  idtipocapa?: | null,
+  tipocapa?:|null,
+  estado?:string |null, 
+}
+
+export interface Titulo{
+  idtitulo?: | null,
+titulo?:| null,
+estado?: string|null,
+}
+

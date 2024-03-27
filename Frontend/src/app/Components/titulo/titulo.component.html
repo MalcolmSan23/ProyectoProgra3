@@ -1,0 +1,19 @@
+<div class="form-group">
+    <label for="" class="control-label">ID Título</label>
+    <input type="text" readonly="readonly" [(ngModel)]="user.idtitulo" name="idtitulo" placeholder="ID Título" class="form-control" required>
+</div>
+
+<div class="form-group">
+    <label for="" class="control-label">Título</label>
+    <input type="text" readonly="readonly" [(ngModel)]="user.titulo" name="titulo" placeholder="Título" class="form-control" required>
+</div>
+
+<div class="form-group">
+    <label for="" class="control-label">Estado</label>
+    <input type="text" readonly="readonly" [(ngModel)]="user.estado" name="estado" placeholder="Estado" class="form-control" required>
+</div>
+
+<button class="btn btn-success btn-block" (click)="updateUser()" onclick="javascript:alert('Título Actualizado')">
+    Actualizar
+</button>
+
