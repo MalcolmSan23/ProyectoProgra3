@@ -292,6 +292,8 @@
             [(ngModel)]="filterPost"
           />
         </div>
+        <button (click)="exportToExcel()" class="btn btn-secondary">Exportar a Excel</button>
+        <button class="btn btn-dark" (click)="openPDF()">Descargar PDF</button>`
       </form>
     </div>
   </div>
@@ -299,7 +301,7 @@
 <br />
 <div class="container mt-4">
   <div class="table-responsive">
-    <table class="table table-striped">
+    <table class="table table-striped" id="tabla">
       <thead class="thead-dark">
         <tr>
           <th scope="col">CI</th>
