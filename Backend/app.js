@@ -23,6 +23,9 @@ app.use(cors(config.application.cors.server));
 
 // rutas backend
 const EmpleadosRoutes = require("./Routes/Empleados");
+const TipocapacitacionRoutes = require("./Routes/Tipocapacitacion");
+const FacultadRoutes = require("./Routes/Empleados"); 
+const TituloRoutes = require("./Routes/Titulo");
 
 app.set("port", process.env.PORT || 3000);
 

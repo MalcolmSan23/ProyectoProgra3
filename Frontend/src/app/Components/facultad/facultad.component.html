@@ -1,0 +1,19 @@
+<div class="form-group">
+    <label for="" class="control-label">ID Facultad</label>
+    <input type="text" readonly="readonly" [(ngModel)]="user.idfacultad" name="idfacultad" placeholder="ID Facultad" class="form-control" required>
+</div>
+
+<div class="form-group">
+    <label for="" class="control-label">Facultad</label>
+    <input type="text" readonly="readonly" [(ngModel)]="user.facultad" name="facultad" placeholder="Facultad" class="form-control" required>
+</div>
+
+<div class="form-group">
+    <label for="" class="control-label">Estado</label>
+    <input type="text" readonly="readonly" [(ngModel)]="user.estado" name="estado" placeholder="Estado" class="form-control" required>
+</div>
+
+<button class="btn btn-success btn-block" (click)="updateUser()" onclick="javascript:alert('Facultad Actualizada')">
+    Actualizar
+</button>
+
