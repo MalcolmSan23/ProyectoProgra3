@@ -2,12 +2,17 @@ const controller = {};
 
 controller.list = (req, res) => {
   req.getConnection((error, conn) => {
-    conn.query("select * from Empleados", (err, Empleados) => {
-      if (err) {
-        res.json(err);
+    conn.query(
+      `SELECT Empleados.CI, Empleados.cipadre, Empleados.nom1, Empleados.nom2, Empleados.ape1, Empleados.ape2, Empleados.sexo, Empleados.dir, Empleados.lugarnac, Empleados.teldomicilio, Empleados.email, Empleados.etnia, Empleados.estcivil, Empleados.colorpelo, Empleados.estatura, Empleados.peso, Empleados.idniveledu,Niveledu.nombrenivel, Empleados.cargo, Empleados.contrato, Empleados.departamento, Empleados.ubicacion, Empleados.estado, Empleados.foto, Empleados.clave
+    FROM Empleados
+    INNER JOIN Niveledu ON Empleados.idniveledu = Niveledu.idniveledu`,
+      (err, Empleados) => {
+        if (err) {
+          res.json(err);
+        }
+        res.json(Empleados);
       }
-      res.json(Empleados);
-    });
+    );
   });
 };
 
