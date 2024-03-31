@@ -17,7 +17,7 @@ export class EmpleadosComponent implements OnInit {
   name = 'Empleados.xlsx';
   TUser: any = [];
   user: Empleados = {
-    CI: 111,
+    CI: null,
     cipadre: null,
     nom1: null,
     nom2: null,

@@ -1,0 +1,165 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">REGISTRO DE CAPACITACION RECIBIDA</a>
+ 
+  </nav>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <!-- Opciones del Modulo-->
+      <button mat-button [matMenuTriggerFor]="menu1">Sistema De Capacitaciones</button> <!-- Agregar nombre de Menu-->
+  
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="SubMenu1">Tablas</button>
+          <button mat-menu-item [matMenuTriggerFor]="SubMenu2">Configuracion</button>
+        </mat-menu>
+  
+        <!--Opcion del SUBMENU Opcion1-->
+        <mat-menu #SubMenu1="matMenu">
+          <a mat-menu-item href="/caparecibida">CAPACITACIONES RECIBIDAS</a>
+          <a mat-menu-item href="/empleados">REGISTRO EMPLEADOS</a>
+          <a mat-menu-item href="/especialidad">ESPECIALIDADES</a>
+          <a mat-menu-item href="/facultad">FACULTADES</a>
+          <a mat-menu-item href="/niveledu">NIVEL EDUCACION</a>
+          <a mat-menu-item href="/nomcentro">REGISTRO DE CENTROS</a>
+          <a mat-menu-item href="/tipocapacitacion">TIPO DE CAPACITACION</a>
+          <a mat-menu-item href="/tiponiveledu">TIPO DE NIVEL EDUCACION</a>
+          <a mat-menu-item href="/titulo">REGISTRO DE TITULO</a>
+        </mat-menu>
+  
+        <!--Opcion del SUBMENU Opcion1-->
+        <mat-menu #SubMenu2="matMenu">
+            <a mat-menu-item href="/Html1">--</a><!--Colocar el nombre del app-routing.module.ts-->
+            <a mat-menu-item href="/Html2">--</a>
+            <a mat-menu-item href="/Html3">--</a>
+            <a mat-menu-item href="/Html4">--</a>
+            <a mat-menu-item href="/Htaml5">--</a>
+    
+          </mat-menu>
+          <button mat-button [matMenuTriggerFor]="menu2">Consultas</button> <!-- Agregar nombre de Menu-->
+       
+          <mat-menu #menu2="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="SubMenu1">Más</button>
+          
+          </mat-menu>
+          <mat-menu #SubMenu1="matMenu">
+            <a mat-menu-item href="/Html1">html1</a><!--Colocar el nombre del app-routing.module.ts-->
+            
+          </mat-menu>
+        
+       </div>
+  </nav>
+
+
+  <div class="agregar_contenedor">
+  <div class="row mt-5">
+  <div class="card">
+      <div class="card-body">
+          <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="AgregarValor()" novalidate >
+            <div class="form-group">
+              <label for="" class="control-label" hidden>Registro No.</label>
+                    <input type="text"  readonly="readonly"  [(ngModel)]="user.idcapa" name="idcapa" placeholder="No" class="form-control" required hidden>
+                    </div>                  
+  
+                <div class="form-group">
+                    <label for="" class="control-label">ID EMPLEADO</label>
+                    <input type="text"  [(ngModel)]="user.CI"  name="CI" placeholder="SELECCIONE EL EMPLEADO"  class="form-control" autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">ID TITULO</label>
+                    <input type="text"  [(ngModel)]="user.idtitulo"  name="idtitulo" placeholder="SELECCIONE EL TITULO"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">ID TIPO CAPACITACION</label>
+                    <input type="text"  [(ngModel)]="user.idtipocapa"  name="idtipocapa" placeholder="SELECCIONE LA ESPECIALIDAD"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">FECHA INICIO</label>
+                    <input type="date"  [(ngModel)]="user.finicio"  name="finicio" placeholder="SELECCIONE LA FECHA DE INICIO"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">FECHA OBTENIDO</label>
+                    <input type="date"  [(ngModel)]="user.ffin"  name="ffin" placeholder="SELECCIONE LA FECHA DE OBTENIDO"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">ID NOMBRE CENTRO</label>
+                    <input type="text"  [(ngModel)]="user.idnomcentro"  name="idnomcentro" placeholder="SELECCIONE LA ESPECIALIDAD"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">FACULTAD</label>
+                    <input type="text"  [(ngModel)]="user.idfacultad"  name="idfacultad" placeholder="SELECCIONE LA FAC"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">TOMO</label>
+                    <input type="text"  [(ngModel)]="user.tomo"  name="tomo" placeholder="DIGITE EL TOMO"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">FOLIO</label>
+                    <input type="text"  [(ngModel)]="user.folio"  name="folio" placeholder="DIGITE EL FOLIO"  class="form-control" autofocus>
+                </div>
+                <br>
+            <button type="submit" class="btn btn-primary" formnovalidate value="Save"  onclick="javascript:alert('Registro Almacenado')">
+                Agregar
+            </button>
+            <br>
+            <br>
+            <div class="form-group">
+                <input type="text" class="form-control" name="filterPost" placeholder="Digite la Capacitacion recibida que desea Buscar" [(ngModel)]="filterPost">
+              </div>
+              <br>
+              <button (click)="exportToExcel()" class="btn btn-secondary">Exportar a Excel</button>
+              <button class="btn btn-dark" (click)="openPDF()">Descargar PDF</button>`
+      
+          </form>
+      </div>
+  </div>
+  </div>
+</div>
+  
+
+
+ <div class="container">  
+    <div class="row mt-25">          
+   <table class="table table-borbered table-hover" id="tabla">
+     <thead>
+        <tr>
+            <th>ID CAPA</th>
+            <th>CI</th>
+            <th>ID TITULO</th>
+            <th>ID TIPO CAPAC.</th>
+            <th>FECHA INICIO</th>
+            <th>FECHA FIN</th>
+            <th>ID NOM CENTRO</th>
+            <th>ID FACULTAD</th>
+            <th>TOMO</th>
+            <th>FOLIO</th>
+            <th>ESTADO</th>
+        </tr>
+  
+      </thead>
+    <tbody >
+  
+                <tr *ngFor="let User of TUser | filtercaparecibida:filterPost">
+                    <td >{{User.idcapa}}</td>
+                    <td >{{User.CI}}</td>
+                    <td >{{User.idtitulo}}</td>
+                    <td >{{User.idtipocapa}}</td>
+                    <td >{{User.finicio}}</td>
+                    <td >{{User.ffin}}</td>
+                    <td >{{User.idnomcentro}}</td>
+                    <td >{{User.idfacultad}}</td>
+                    <td >{{User.tomo}}</td>
+                    <td >{{User.folio}}</td>
+                    <td >{{User.estado}}</td>
+                    <td>  <button  class="btn btn-danger"  (click)="EliminarData(User.idcapa)" onclick="javascript:alert('Registro Eliminado')" >Eliminar</button> </td>
+                    
+                  <button  class="btn btn-success" [routerLink]="['/caparecibida/edit', User.idcapa]">
+                     Actualizar
+                </button>
+                    
+                  </tr>
+  
+     </tbody>
+   </table>
+</div> 
+</div>

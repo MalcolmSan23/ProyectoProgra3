@@ -1,0 +1,61 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">CAPACITACION RECIBIDA</a>
+  </nav>
+  
+  <div class="row mt-5">
+    <div class="card">
+      <div class="card-body">
+        <form action="">
+           
+            <div class="form-group">
+                <label for="" class="control-label" hidden>Registro No.</label>
+                      <input type="text"  readonly="readonly"  [(ngModel)]="user.idcapa" name="idcapa" placeholder="No" class="form-control" required hidden>
+                      </div>                  
+    
+                  <div class="form-group">
+                      <label for="" class="control-label">ID EMPLEADO</label>
+                      <input type="text"  [(ngModel)]="user.CI"  name="CI" placeholder="SELECCIONE EL EMPLEADO"  class="form-control" autofocus>
+                  </div>
+  
+                  <div class="form-group">
+                      <label for="" class="control-label">ID TITULO</label>
+                      <input type="text"  [(ngModel)]="user.idtitulo"  name="idtitulo" placeholder="SELECCIONE EL TITULO"  class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                      <label for="" class="control-label">ID TIPO CAPACITACION</label>
+                      <input type="text"  [(ngModel)]="user.idtipocapa"  name="idtipocapa" placeholder="SELECCIONE LA ESPECIALIDAD"  class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                      <label for="" class="control-label">FECHA INICIO</label>
+                      <input type="date"  [(ngModel)]="user.finicio"  name="finicio" placeholder="SELECCIONE LA FECHA DE INICIO"  class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                      <label for="" class="control-label">FECHA OBTENIDO</label>
+                      <input type="date"  [(ngModel)]="user.ffin"  name="ffin" placeholder="SELECCIONE LA FECHA DE OBTENIDO"  class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                      <label for="" class="control-label">ID NOMBRE CENTRO</label>
+                      <input type="text"  [(ngModel)]="user.idnomcentro"  name="idnomcentro" placeholder="SELECCIONE LA ESPECIALIDAD"  class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                      <label for="" class="control-label">FACULTAD</label>
+                      <input type="text"  [(ngModel)]="user.idfacultad"  name="idfacultad" placeholder="SELECCIONE LA FAC"  class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                      <label for="" class="control-label">TOMO</label>
+                      <input type="text"  [(ngModel)]="user.tomo"  name="tomo" placeholder="DIGITE EL TOMO"  class="form-control" autofocus>
+                  </div>
+                  <div class="form-group">
+                      <label for="" class="control-label">FOLIO</label>
+                      <input type="text"  [(ngModel)]="user.folio"  name="folio" placeholder="DIGITE EL FOLIO"  class="form-control" autofocus>
+                  </div>
+            
+
+                  
+              <button class="btn btn-success btn-block" (click)="updateUser()" onclick="javascript:alert('Registro Actualizado')">
+                Actualizar
+              </button>    
+        </form>
+      </div>
+    </div>
+</div>

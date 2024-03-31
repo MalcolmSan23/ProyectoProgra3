@@ -1,0 +1,147 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">REGISTRO DE NIVEL EDUCACION</a>
+ 
+  </nav>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <!-- Opciones del Modulo-->
+      <button mat-button [matMenuTriggerFor]="menu1">Sistema De Capacitaciones</button> <!-- Agregar nombre de Menu-->
+  
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="SubMenu1">Tablas</button>
+          <button mat-menu-item [matMenuTriggerFor]="SubMenu2">Configuracion</button>
+        </mat-menu>
+  
+        <!--Opcion del SUBMENU Opcion1-->
+        <mat-menu #SubMenu1="matMenu">
+          <a mat-menu-item href="/caparecibida">CAPACITACIONES RECIBIDAS</a>
+          <a mat-menu-item href="/empleados">REGISTRO EMPLEADOS</a>
+          <a mat-menu-item href="/especialidad">ESPECIALIDADES</a>
+          <a mat-menu-item href="/facultad">FACULTADES</a>
+          <a mat-menu-item href="/niveledu">NIVEL EDUCACION</a>
+          <a mat-menu-item href="/nomcentro">REGISTRO DE CENTROS</a>
+          <a mat-menu-item href="/tipocapacitacion">TIPO DE CAPACITACION</a>
+          <a mat-menu-item href="/tiponiveledu">TIPO DE NIVEL EDUCACION</a>
+          <a mat-menu-item href="/titulo">REGISTRO DE TITULO</a>
+        </mat-menu>
+  
+        <!--Opcion del SUBMENU Opcion1-->
+        <mat-menu #SubMenu2="matMenu">
+            <a mat-menu-item href="/Html1">--</a><!--Colocar el nombre del app-routing.module.ts-->
+            <a mat-menu-item href="/Html2">--</a>
+            <a mat-menu-item href="/Html3">--</a>
+            <a mat-menu-item href="/Html4">--</a>
+            <a mat-menu-item href="/Htaml5">--</a>
+    
+          </mat-menu>
+          <button mat-button [matMenuTriggerFor]="menu2">Consultas</button> <!-- Agregar nombre de Menu-->
+       
+          <mat-menu #menu2="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="SubMenu1">Más</button>
+          
+          </mat-menu>
+          <mat-menu #SubMenu1="matMenu">
+            <a mat-menu-item href="/Html1">html1</a><!--Colocar el nombre del app-routing.module.ts-->
+            
+          </mat-menu>
+        
+       </div>
+  </nav>
+  
+  <div class="agregar_contenedor">
+  <div class="row mt-5">
+  <div class="card">
+      <div class="card-body">
+          <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="AgregarValor()" novalidate >
+            <div class="form-group">
+              <label for="" class="control-label" hidden>Registro No.</label>
+                    <input type="text"  readonly="readonly"  [(ngModel)]="user.idniveledu" name="idniveledu" placeholder="No" class="form-control" required hidden>
+                    </div>                  
+  
+                <div class="form-group">
+                    <label for="" class="control-label">NOMBRE NIVEL</label>
+                    <input type="text"  [(ngModel)]="user.nombrenivel"  name="nombrenivel" placeholder="DIGITE EL NOMBRE DEL NIVEL"  class="form-control" autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class="control-label">ID TIPO NIVEL EDU</label>
+                    <input type="text"  [(ngModel)]="user.idtiponiveledu"  name="idtiponiveledu" placeholder="SELECCIONE EL TIPO DE NIVEL EDUCTATIVO"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">ESPECIALIDAD</label>
+                    <input type="text"  [(ngModel)]="user.idespecial"  name="idespecial" placeholder="SELECCIONE LA ESPECIALIDAD"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">ID NOM CENTRO</label>
+                    <input type="text"  [(ngModel)]="user.idnomcentro"  name="idnomcentro" placeholder="SELECCIONE EL NOMBRE DEL CENTRO"  class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label">FECHA OBTENIDO</label>
+                    <input type="date"  [(ngModel)]="user.fobtenido"  name="fobtenido" placeholder="SELECCIONE LA FECHA"  class="form-control" autofocus>
+                </div>
+           
+                <br>
+            <button type="submit" class="btn btn-primary" formnovalidate value="Save"  onclick="javascript:alert('Registro Almacenado')">
+                Agregar
+            </button>
+            <br>
+            <br>
+            <div class="form-group">
+            <input type="text" class="form-control" name="filterPost" placeholder="Digite el nivel de educacion que desea Buscar" [(ngModel)]="filterPost">
+        </div>
+        <br>
+        <button (click)="exportToExcel()" class="btn btn-secondary">Exportar a Excel</button>
+        <button class="btn btn-dark" (click)="openPDF()">Descargar PDF</button>`
+          </form>
+      </div>
+  </div>
+  </div>
+</div>
+  
+
+
+ <div class="container">  
+    <div class="row mt-25">          
+   <table class="table table-borbered table-hover"id="tabla">
+     <thead>
+        <tr>
+            <th>NO</th>
+            <th>NOMBRE NIVEL</th>
+            <th>ID TIPO NIVEL EDU</th>
+            <th>ID ESPECIAL</th>
+            <th>ID NOMBRE CENTRO</th>
+            <th>FECHA OBTENIDO</th>
+            <th>ESTADO</th>
+        </tr>
+  
+      </thead>
+    <tbody >
+  
+                <tr *ngFor="let User of TUser | filterniveledu:filterPost">
+                    <td >{{User.idniveledu}}</td>
+                    <td >{{User.nombrenivel}}</td>
+                    <td >{{User.idtiponiveledu}}</td>
+                    <td >{{User.idespecial}}</td>
+                    <td >{{User.idnomcentro}}</td>
+                    <td >{{User.fobtenido}}</td>
+                    <td >{{User.estado}}</td>
+                    <td>  <button  class="btn btn-danger"  (click)="EliminarData(User.idniveledu)" onclick="javascript:alert('Registro Eliminado')" >Eliminar</button> </td>
+                    
+                  <button  class="btn btn-success" [routerLink]="['/niveledu/edit', User.idniveledu]">
+                     Actualizar
+                </button>
+                    
+                  </tr>
+  
+     </tbody>
+   </table>
+</div> 
+</div>
+
+
+
+           
+
+
+
