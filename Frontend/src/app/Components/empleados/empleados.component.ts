@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleados } from '../../Interface/user';
 import { DataService } from '../../Services/data.service';
+import { AuthService } from '../../Services/auth.service';
 import { ViewChild, ElementRef } from '@angular/core';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
@@ -44,7 +45,7 @@ export class EmpleadosComponent implements OnInit {
   };
 
   NivelEdu: any;
-  constructor(private Data: DataService) {}
+  constructor(private Data: DataService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.getDropListNivelEdu();
@@ -101,5 +102,9 @@ export class EmpleadosComponent implements OnInit {
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
       PDF.save('empresas.pdf');
     });
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn(); // Llama al método isLoggedIn() del servicio AuthService
   }
 }

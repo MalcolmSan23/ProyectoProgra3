@@ -292,7 +292,9 @@
             [(ngModel)]="filterPost"
           />
         </div>
-        <button (click)="exportToExcel()" class="btn btn-secondary">Exportar a Excel</button>
+        <button (click)="exportToExcel()" class="btn btn-secondary">
+          Exportar a Excel
+        </button>
         <button class="btn btn-dark" (click)="openPDF()">Descargar PDF</button>`
       </form>
     </div>
@@ -329,7 +331,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let User of TUser | filterempleados:filterPost">
+        <tr *ngFor="let User of TUser | filterempleados : filterPost">
           <td>{{ User.CI }}</td>
           <td>{{ User.cipadre }}</td>
           <td>{{ User.nom1 }} {{ User.nom2 }}</td>
@@ -353,21 +355,25 @@
           <td>{{ User.clave }}</td>
           <td>
             <div>
-              <button
-                class="btn btn-danger btn-sm w-100"
-                (click)="EliminarData(User.CI)"
-                onclick="javascript:alert('Registro Eliminado')"
-              >
-                Eliminar
-              </button>
+              <ng-container *ngIf="isLoggedIn()">
+                <button
+                  class="btn btn-danger btn-sm w-100"
+                  (click)="EliminarData(User.CI)"
+                  onclick="javascript:alert('Registro Eliminado')"
+                >
+                  Eliminar
+                </button>
+              </ng-container>
             </div>
             <div>
-              <button
-                class="btn btn-success btn-sm w-100"
-                [routerLink]="['/empleados/edit', User.CI]"
-              >
-                Actualizar
-              </button>
+              <ng-container *ngIf="isLoggedIn()">
+                <button
+                  class="btn btn-success btn-sm w-100"
+                  [routerLink]="['/empleados/edit', User.CI]"
+                >
+                  Actualizar
+                </button>
+              </ng-container>
             </div>
           </td>
         </tr>
