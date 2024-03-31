@@ -64,7 +64,6 @@ function verifyToken(req, res, next) {
     if (err) {
       return res.status(401).json({ error: "Token inválido" });
     }
-
     // Si el token es válido, decodificarlo y pasar la información del usuario al siguiente middleware
     req.user = decoded;
     next();
@@ -88,12 +87,6 @@ app.post("/login", (req, res) => {
   } else {
     res.status(401).json({ error: "Credenciales inválidas" });
   }
-});
-
-// Rutas protegidas que requieren autenticación
-app.get("/api/empleados", verifyToken, (req, res) => {
-  // El token es válido, se puede acceder a esta ruta
-  res.json({ mensaje: "Bienvenido a la ruta protegida" });
 });
 
 // Rutas Frontend

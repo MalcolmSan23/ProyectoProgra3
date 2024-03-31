@@ -9,18 +9,18 @@ const routes: Routes = [
   {
     path: 'empleados',
     component: EmpleadosComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'empleados/edit/:id',
-    component :EmpleadosEditComponent,
-    canActivate: [AuthGuard]
+    component: EmpleadosEditComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
-    component :LoginComponent
-  }
-
+    component: LoginComponent,
+  },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({

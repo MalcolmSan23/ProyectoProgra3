@@ -22,7 +22,6 @@ export class LoginComponent {
         (response) => {
           console.log('Inicio de sesión exitoso:', response);
           // Aquí podrías redirigir al usuario a otra página de la aplicación
-          timer(5000);
           this.router.navigateByUrl('/empleados');
         },
         (error) => {
