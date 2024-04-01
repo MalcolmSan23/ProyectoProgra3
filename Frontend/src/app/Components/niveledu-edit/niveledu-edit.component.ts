@@ -22,6 +22,10 @@ export class NivelEduEditComponent implements OnInit {
     estado: 'Activo'
   }
 
+
+  Tiponiveledu: any;
+  Especialidad: any;
+  Nomcentro: any;
   constructor(private Data: DataService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
@@ -38,6 +42,9 @@ export class NivelEduEditComponent implements OnInit {
           err => console.log(err)
         );
     }
+    this.getDropListTiponiveledu();
+    this.getDropListEspecialidad();
+    this.getDropListNomcentro();
     }
     updateUser() {
       this.Data.update(this.user.idniveledu!, this.user,'/niveledu')
@@ -48,4 +55,19 @@ export class NivelEduEditComponent implements OnInit {
           err => console.error(err)
         );
     }  
+    getDropListNomcentro() {
+      this.Data.getDropListNomcentro().subscribe((data: any) => {
+        this.Nomcentro = data;
+      });
+    }
+    getDropListEspecialidad() {
+      this.Data.getDropListEspecialidad().subscribe((data: any) => {
+        this.Especialidad = data;
+      });
+    }
+    getDropListTiponiveledu() {
+      this.Data.getDropListTiponiveledu().subscribe((data: any) => {
+        this.Tiponiveledu = data;
+      });
+    }
   }
