@@ -3,14 +3,9 @@
     <button mat-button [matMenuTriggerFor]="menu1">
       Sistema De Capacitaciones
     </button>
-
+    <button  mat-button (click)="logout()" >Logout</button>
     <mat-menu #menu1="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="SubMenu1">Tablas</button>
-      <div>
-        <button mat-button [matMenuTriggerFor]="menu3">
-          Log Out<a mat-menu-item href="/login"></a>
-        </button>
-      </div>
     </mat-menu>
 
     <mat-menu #SubMenu1="matMenu">
