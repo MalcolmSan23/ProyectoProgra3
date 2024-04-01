@@ -1,82 +1,70 @@
 <nav class="navbar navbar-dark bg-dark">
-  <a href="/" class="navbar-brand">EMPLEADO</a>
+  <a class="navbar-brand">EMPLEADO</a>
 </nav>
 
 <div class="row mt-5">
   <div class="card">
     <div class="card-body">
       <form action="">
+         
         <div class="form-group">
-          <label for="" class="control-label" hidden>Registro No.</label>
+          <label for="" class="control-label" hidden>cipadre</label>
           <input
             type="text"
-            readonly="readonly"
             [(ngModel)]="user.CI"
-            na
-            class="form-control"
-            required
-            hidden
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="" class="control-label">cipadre</label>
-          <input
-            type="text"
-            [(ngModel)]="user.cipadre"
-            name="cipadre"
+            name="CI"
             placeholder="DIGITE LA cipadre"
             class="form-control"
-            autofocus
+            required hidden
           />
         </div>
         <div class="form-group">
-          <label for="" class="control-label">nom1</label>
+          <label for="" class="control-label">PRIMER NOMBRE</label>
           <input
             type="text"
             [(ngModel)]="user.nom1"
             name="nom1"
-            placeholder="DIGITE LA nom1"
+            placeholder="DIGITE EL PRIMER NOMBRE"
             class="form-control"
             autofocus
           />
         </div>
         <div class="form-group">
-          <label for="" class="control-label">nom2</label>
+          <label for="" class="control-label">SEGUNDO NOMBRE</label>
           <input
             type="text"
             [(ngModel)]="user.nom2"
             name="nom2"
-            placeholder="DIGITE EL nom2"
+            placeholder="DIGITE EL SEGUNDO NOMBRE"
             class="form-control"
             autofocus
           />
         </div>
 
         <div class="form-group">
-          <label for="" class="control-label">ape1</label>
+          <label for="" class="control-label">PRIMER APELLIDO</label>
           <input
             type="text"
             [(ngModel)]="user.ape1"
             name="ape1"
-            placeholder="DIGITE EL ape1"
+            placeholder="DIGITE EL APELLIDO"
             class="form-control"
             autofocus
           />
         </div>
         <div class="form-group">
-          <label for="" class="control-label">ape2</label>
+          <label for="" class="control-label">SEGUNDO APELLIDO</label>
           <input
             type="text"
             [(ngModel)]="user.ape2"
             name="ape2"
-            placeholder="DIGITE EL ape2"
+            placeholder="DIGITE EL SEGUNDO APELLIDO"
             class="form-control"
             autofocus
           />
         </div>
         <div class="form-group">
-          <label for="" class="control-label">Sexo</label>
+          <label for="" class="control-label">SEXO</label>
           <input
             type="text"
             [(ngModel)]="user.sexo"
@@ -86,7 +74,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="dir" class="control-label">Dirección</label>
+          <label for="dir" class="control-label">DIRECCIÓN</label>
           <input
             type="text"
             [(ngModel)]="user.dir"
@@ -98,7 +86,7 @@
 
         <div class="form-group">
           <label for="lugarnac" class="control-label"
-            >Lugar de Nacimiento</label
+            >LUGAR DE NACIMIENTO</label
           >
           <input
             type="text"
@@ -111,7 +99,7 @@
 
         <div class="form-group">
           <label for="teldomicilio" class="control-label"
-            >Teléfono Domicilio</label
+            >TELEFONO A DOMICILIO</label
           >
           <input
             type="text"
@@ -123,7 +111,7 @@
         </div>
 
         <div class="form-group">
-          <label for="email" class="control-label">Email</label>
+          <label for="email" class="control-label">EMAIL</label>
           <input
             type="email"
             [(ngModel)]="user.email"
@@ -134,7 +122,7 @@
         </div>
 
         <div class="form-group">
-          <label for="etnia" class="control-label">Etnia</label>
+          <label for="etnia" class="control-label">ETNIA</label>
           <input
             type="text"
             [(ngModel)]="user.etnia"
@@ -145,7 +133,7 @@
         </div>
 
         <div class="form-group">
-          <label for="estcivil" class="control-label">Estado Civil</label>
+          <label for="estcivil" class="control-label">ESTADO CIVIL</label>
           <input
             type="text"
             [(ngModel)]="user.estcivil"
@@ -156,7 +144,7 @@
         </div>
 
         <div class="form-group">
-          <label for="colorpelo" class="control-label">Color de Pelo</label>
+          <label for="colorpelo" class="control-label">COLOR DE PELO</label>
           <input
             type="text"
             [(ngModel)]="user.colorpelo"
@@ -167,42 +155,47 @@
         </div>
 
         <div class="form-group">
-          <label for="estatura" class="control-label">Estatura</label>
+          <label for="estatura" class="control-label">ESTATURA </label>
           <input
             type="number"
             [(ngModel)]="user.estatura"
             name="estatura"
-            placeholder="Digite la estatura"
+            placeholder="Digite la estatura en centimetros"
             class="form-control"
           />
         </div>
 
         <div class="form-group">
-          <label for="peso" class="control-label">Peso</label>
+          <label for="peso" class="control-label">PESO (KG)</label>
           <input
             type="number"
             [(ngModel)]="user.peso"
             name="peso"
-            placeholder="Digite el peso"
+            placeholder="Digite el peso en Kilogramos"
             class="form-control"
           />
         </div>
 
         <div class="form-group">
-          <label for="idniveledu" class="control-label"
-            >ID Nivel Educativo</label
-          >
-          <input
-            type="number"
+          <option>Seleccione el Nivel de Educacion</option>
+          <select
+            class="form-control"
+            size="1"
             [(ngModel)]="user.idniveledu"
-            name="idniveledu"
-            placeholder="Digite el ID del nivel educativo"
-            class="form-control"
-          />
+            name="idsuc"
+            required
+          >
+            <option
+              *ngFor="let lista of NivelEdu"
+              value="{{ lista.idniveledu }}"
+            >
+              {{ lista.nombrenivel }}
+            </option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label for="cargo" class="control-label">Cargo</label>
+          <label for="cargo" class="control-label">CARGO</label>
           <input
             type="text"
             [(ngModel)]="user.cargo"
@@ -213,7 +206,7 @@
         </div>
 
         <div class="form-group">
-          <label for="contrato" class="control-label">Contrato</label>
+          <label for="contrato" class="control-label">CONTRATO</label>
           <input
             type="text"
             [(ngModel)]="user.contrato"
@@ -224,7 +217,7 @@
         </div>
 
         <div class="form-group">
-          <label for="departamento" class="control-label">Departamento</label>
+          <label for="departamento" class="control-label">DEPARTAMENTO</label>
           <input
             type="text"
             [(ngModel)]="user.departamento"
@@ -235,7 +228,7 @@
         </div>
 
         <div class="form-group">
-          <label for="ubicacion" class="control-label">Ubicación</label>
+          <label for="ubicacion" class="control-label">UBICACION</label>
           <input
             type="text"
             [(ngModel)]="user.ubicacion"
@@ -245,36 +238,6 @@
           />
         </div>
 
-        <div class="form-group">
-          <label for="ubicacion" class="control-label">foto</label>
-          <input
-            type="text"
-            [(ngModel)]="user.foto"
-            name="foto"
-            placeholder="Digite la foto"
-            class="form-control"
-          />
-        </div>
-        <div class="form-group">
-          <label for="ubicacion" class="control-label">estado</label>
-          <input
-            type="text"
-            [(ngModel)]="user.estado"
-            name="estado"
-            placeholder="Digite la estado"
-            class="form-control"
-          />
-        </div>
-        <div class="form-group">
-          <label for="ubicacion" class="control-label">clave</label>
-          <input
-            type="text"
-            [(ngModel)]="user.clave"
-            name="clave"
-            placeholder="Digite la clave"
-            class="form-control"
-          />
-        </div>
         <button
           class="btn btn-success btn-block"
           (click)="updateUser()"

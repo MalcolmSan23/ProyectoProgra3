@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Titulo } from '../../Interface/user';
 import { DataService } from '../../Services/data.service';
 import { ViewChild, ElementRef } from '@angular/core';
+
+import { AuthService } from '../../Services/auth.service';
+import { Router } from '@angular/router';
+
+
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import * as XLSX from 'xlsx';
@@ -26,7 +31,13 @@ export class TituloComponent implements OnInit {
     estado: 'Activo'
   }
 
-  constructor(private Data: DataService) { }
+  constructor(private authService: AuthService, private router: Router, private Data: DataService) { }
+
+  
+  logout(): void {
+    this.authService.logout();
+    this.router.navigateByUrl('/login');
+  }
 
   ngOnInit(): void {
     this.getUser();

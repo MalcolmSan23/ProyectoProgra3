@@ -38,6 +38,8 @@ export class EmpleadosEditComponent  {
     clave: null,
   };
 
+  NivelEdu: any;  
+
   constructor(
     private Data: DataService,
     private router: Router,
@@ -45,6 +47,7 @@ export class EmpleadosEditComponent  {
   ) {}
 
   ngOnInit(): void {
+    this.getDropListNivelEdu();
     const params = this.activatedRoute.snapshot.params;
 
     if (params['id']) {
@@ -55,6 +58,11 @@ export class EmpleadosEditComponent  {
         (err) => console.log(err)
       );
     }
+  }
+  getDropListNivelEdu() {
+    this.Data.getDropListNivelEdu().subscribe((data: any) => {
+      this.NivelEdu = data;
+    });
   }
   updateUser() {
     this.Data.update(this.user.CI!, this.user, '/empleados').subscribe(

@@ -26,11 +26,23 @@ export class CaparecibidaEditComponent implements OnInit {
    estado: 'Activo'
   }
 
+
+  Empleados: any;
+Titulo: any;
+Tipocapacitacion: any;
+Nomcentro: any;
+Facultad: any;
+
   constructor(private Data: DataService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getDropListEmpleados();
+    this.getDropListTitulo();
+    this.getDropListTipocapacitacion();
+    this.getDropListNomcentro();
+    this.getDropListFacultad();
     const params = this.activatedRoute.snapshot.params;
 
     if (params['id']) {
@@ -43,6 +55,33 @@ export class CaparecibidaEditComponent implements OnInit {
         );
     }
     }
+
+    getDropListEmpleados() {
+      this.Data.getDropListEmpleados().subscribe((data: any) => {
+        this.Empleados = data;
+      });
+    }
+    getDropListTitulo() {
+      this.Data.getDropListTitulo().subscribe((data: any) => {
+        this.Titulo = data;
+      });
+    }
+    getDropListTipocapacitacion() {
+      this.Data.getDropListTipocapacitacion().subscribe((data: any) => {
+        this.Tipocapacitacion = data;
+      });
+    }
+    getDropListNomcentro() {
+      this.Data.getDropListNomcentro().subscribe((data: any) => {
+        this.Nomcentro = data;
+      });
+    }
+    getDropListFacultad() {
+      this.Data.getDropListFacultad().subscribe((data: any) => {
+        this.Facultad = data;
+      });
+    }
+
     updateUser() {
       this.Data.update(this.user.idcapa!, this.user,'/caparecibida')
         .subscribe(

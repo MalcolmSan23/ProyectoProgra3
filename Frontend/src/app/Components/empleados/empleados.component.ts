@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Empleados } from '../../Interface/user';
 import { DataService } from '../../Services/data.service';
 import { ViewChild, ElementRef } from '@angular/core';
+
+import { AuthService } from '../../Services/auth.service';
+import { Router } from '@angular/router';
+
+
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -44,8 +49,13 @@ export class EmpleadosComponent implements OnInit {
   };
 
   NivelEdu: any;
-  constructor(private Data: DataService) {}
+  constructor(private authService: AuthService, private router: Router, private Data: DataService) { }
 
+  
+  logout(): void {
+    this.authService.logout();
+    this.router.navigateByUrl('/login');
+  }
   ngOnInit(): void {
     this.getDropListNivelEdu();
     this.getUser();

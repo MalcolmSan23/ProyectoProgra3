@@ -45,7 +45,7 @@ app.use(
     {
       host: "localhost",
       user: "root",
-      password: "admin",
+      password: "32706777",
       port: 3306,
       database: "Capacitaciones",
     },

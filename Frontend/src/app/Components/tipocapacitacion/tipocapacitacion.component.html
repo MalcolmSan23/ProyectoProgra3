@@ -3,50 +3,58 @@
  
   </nav>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #b2dfdb;">
     <div class="container">
-      <!-- Opciones del Modulo-->
-      <button mat-button [matMenuTriggerFor]="menu1">Sistema De Capacitaciones</button> <!-- Agregar nombre de Menu-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a class="navbar-brand" style="color: #333;">Sistema de Capacitaciones</a>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <button mat-button [matMenuTriggerFor]="menu1" class="btn btn-outline-blue">
+              PARAMETROS
+            </button>
+          </li>
+        </ul>
+      
+      </div>
   
-        <mat-menu #menu1="matMenu">
-          <button mat-menu-item [matMenuTriggerFor]="SubMenu1">Tablas</button>
-          <button mat-menu-item [matMenuTriggerFor]="SubMenu2">Configuracion</button>
-        </mat-menu>
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="SubMenu1" class="btn btn-outline-blue">TABLAS</button>
+      </mat-menu>
   
-        <!--Opcion del SUBMENU Opcion1-->
-        <mat-menu #SubMenu1="matMenu">
-          <a mat-menu-item href="/caparecibida">CAPACITACIONES RECIBIDAS</a>
-          <a mat-menu-item href="/empleados">REGISTRO EMPLEADOS</a>
-          <a mat-menu-item href="/especialidad">ESPECIALIDADES</a>
-          <a mat-menu-item href="/facultad">FACULTADES</a>
-          <a mat-menu-item href="/niveledu">NIVEL EDUCACION</a>
-          <a mat-menu-item href="/nomcentro">REGISTRO DE CENTROS</a>
-          <a mat-menu-item href="/tipocapacitacion">TIPO DE CAPACITACION</a>
-          <a mat-menu-item href="/tiponiveledu">TIPO DE NIVEL EDUCACION</a>
-          <a mat-menu-item href="/titulo">REGISTRO DE TITULO</a>
-        </mat-menu>
+      <mat-menu #menu2="matMenu">
+     
+      </mat-menu>
   
-        <!--Opcion del SUBMENU Opcion1-->
-        <mat-menu #SubMenu2="matMenu">
-            <a mat-menu-item href="/Html1">--</a><!--Colocar el nombre del app-routing.module.ts-->
-            <a mat-menu-item href="/Html2">--</a>
-            <a mat-menu-item href="/Html3">--</a>
-            <a mat-menu-item href="/Html4">--</a>
-            <a mat-menu-item href="/Htaml5">--</a>
-    
-          </mat-menu>
-          <button mat-button [matMenuTriggerFor]="menu2">Consultas</button> <!-- Agregar nombre de Menu-->
-       
-          <mat-menu #menu2="matMenu">
-            <button mat-menu-item [matMenuTriggerFor]="SubMenu1">Más</button>
-          
-          </mat-menu>
-          <mat-menu #SubMenu1="matMenu">
-            <a mat-menu-item href="/Html1">html1</a><!--Colocar el nombre del app-routing.module.ts-->
-            
-          </mat-menu>
-        
-       </div>
+      <mat-menu #SubMenu1="matMenu">
+        <a mat-menu-item href="/caparecibida" class="dropdown-item" style="color: #333;">CAPACITACIONES RECIBIDAS</a>
+        <a mat-menu-item href="/empleados" class="dropdown-item" style="color: #333;">REGISTRO EMPLEADOS</a>
+        <a mat-menu-item href="/especialidad" class="dropdown-item" style="color: #333;">ESPECIALIDADES</a>
+        <a mat-menu-item href="/facultad" class="dropdown-item" style="color: #333;">FACULTADES</a>
+        <a mat-menu-item href="/niveledu" class="dropdown-item" style="color: #333;">NIVEL EDUCACION</a>
+        <a mat-menu-item href="/nomcentro" class="dropdown-item" style="color: #333;">REGISTRO DE CENTROS</a>
+        <a mat-menu-item href="/tipocapacitacion" class="dropdown-item" style="color: #333;">TIPO DE CAPACITACION</a>
+        <a mat-menu-item href="/tiponiveledu" class="dropdown-item" style="color: #333;">TIPO DE NIVEL EDUCACION</a>
+        <a mat-menu-item href="/titulo" class="dropdown-item" style="color: #333;">REGISTRO DE TITULO</a>
+      </mat-menu>
+  
+      <mat-menu #SubMenu2="matMenu">
+        <a mat-menu-item href="/Html1" class="dropdown-item" style="color: #333;">Consultas 1</a>
+        <a mat-menu-item href="/Html2" class="dropdown-item" style="color: #333;">Consultas 2</a>
+        <a mat-menu-item href="/Html3" class="dropdown-item" style="color: #333;">Consultas 3</a>
+        <a mat-menu-item href="/Html4" class="dropdown-item" style="color: #333;">Consultas 4</a>
+        <a mat-menu-item href="/Html5" class="dropdown-item" style="color: #333;">Consultas 5</a>
+      </mat-menu>
+      <div class="float-right">
+        <button mat-button (click)="logout()" class="btn btn-outline-blue">Logout</button>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">REGISTRO DE TIPO CAPACITACIONES</a>
+ 
   </nav>
   
   <div class="agregar_contenedor"></div>

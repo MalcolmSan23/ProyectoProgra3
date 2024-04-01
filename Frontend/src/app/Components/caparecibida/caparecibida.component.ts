@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Caparecibida } from '../../Interface/user';
 import { DataService } from '../../Services/data.service';
 import { ViewChild, ElementRef } from '@angular/core';
+
+import { AuthService } from '../../Services/auth.service';
+import { Router } from '@angular/router';
+
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import * as XLSX from 'xlsx';
@@ -32,11 +36,51 @@ export class CaparecibidaComponent implements OnInit {
   folio: null,
   estado: 'Activo'
   }
+//tablas dropdownlist
+Empleados: any;
+Titulo: any;
+Tipocapacitacion: any;
+Nomcentro: any;
+Facultad: any;
+  constructor(private authService: AuthService, private router: Router, private Data: DataService) { }
 
-  constructor(private Data: DataService) { }
-
+  
+  logout(): void {
+    this.authService.logout();
+    this.router.navigateByUrl('/login');
+  }
   ngOnInit(): void {
+    this.getDropListEmpleados();
+    this.getDropListTitulo();
+    this.getDropListTipocapacitacion();
+    this.getDropListNomcentro();
+    this.getDropListFacultad();
     this.getUser();
+  }
+  getDropListEmpleados() {
+    this.Data.getDropListEmpleados().subscribe((data: any) => {
+      this.Empleados = data;
+    });
+  }
+  getDropListTitulo() {
+    this.Data.getDropListTitulo().subscribe((data: any) => {
+      this.Titulo = data;
+    });
+  }
+  getDropListTipocapacitacion() {
+    this.Data.getDropListTipocapacitacion().subscribe((data: any) => {
+      this.Tipocapacitacion = data;
+    });
+  }
+  getDropListNomcentro() {
+    this.Data.getDropListNomcentro().subscribe((data: any) => {
+      this.Nomcentro = data;
+    });
+  }
+  getDropListFacultad() {
+    this.Data.getDropListFacultad().subscribe((data: any) => {
+      this.Facultad = data;
+    });
   }
   getUser() {
     this.Data.getAll('/caparecibida')

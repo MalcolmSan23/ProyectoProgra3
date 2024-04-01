@@ -10,9 +10,32 @@ import { throwError, Observable, retry, catchError } from 'rxjs';
 export class DataService {
   API_URI = 'http://localhost:3000/api';
   constructor(private http: HttpClient, private router: Router) {}
-
+//droplists
   getDropListNivelEdu(): Observable<any[]> {
     return this.http.get<any>(this.API_URI + '/niveledu');
+  }
+  
+  getDropListEmpleados(): Observable<any[]> {
+    return this.http.get<any>(this.API_URI + '/empleados');
+  }
+
+  getDropListTipocapacitacion(): Observable<any[]> {
+    return this.http.get<any>(this.API_URI + '/tipocapacitacion');
+  }
+  getDropListFacultad(): Observable<any[]> {
+    return this.http.get<any>(this.API_URI + '/facultad');
+  }
+  getDropListNomcentro(): Observable<any[]> {
+    return this.http.get<any>(this.API_URI + '/nomcentro');
+  }
+  getDropListTitulo(): Observable<any[]> {
+    return this.http.get<any>(this.API_URI + '/titulo');
+  }
+  getDropListEspecialidad(): Observable<any[]> {
+    return this.http.get<any>(this.API_URI + '/especialidad');
+  }
+  getDropListTiponiveledu(): Observable<any[]> {
+    return this.http.get<any>(this.API_URI + '/tiponiveledu');
   }
 
   getAll(url: string) {
