@@ -35,6 +35,10 @@ export class NivelEduComponent implements OnInit {
     estado: 'Activo'
   }
 
+  Tiponiveledu: any;
+  Especialidad: any;
+  Nomcentro: any;
+
   constructor(private authService: AuthService, private router: Router, private Data: DataService) { }
 
   
@@ -44,8 +48,27 @@ export class NivelEduComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getDropListTiponiveledu();
+    this.getDropListEspecialidad();
+    this.getDropListNomcentro();
     this.getUser();
   }
+  getDropListNomcentro() {
+    this.Data.getDropListNomcentro().subscribe((data: any) => {
+      this.Nomcentro = data;
+    });
+  }
+  getDropListEspecialidad() {
+    this.Data.getDropListEspecialidad().subscribe((data: any) => {
+      this.Especialidad = data;
+    });
+  }
+  getDropListTiponiveledu() {
+    this.Data.getDropListTiponiveledu().subscribe((data: any) => {
+      this.Tiponiveledu = data;
+    });
+  }
+
   getUser() {
     this.Data.getAll('/niveledu')
       .subscribe(res => {
