@@ -53,7 +53,7 @@ controller.update = (req, res) => {
 controller.delete = (req, res) => {
   const { CI } = req.params;
   req.getConnection((err, conn) => {
-    conn.query("delete from Empleados where CI =?", [CI], (err, rows) => {
+    conn.query("update Empleados set estado= 'Inactivo' where CI=?;", [CI], (err, rows) => {
       res.json({ message: "Registro Eliminado" });
     });
   });

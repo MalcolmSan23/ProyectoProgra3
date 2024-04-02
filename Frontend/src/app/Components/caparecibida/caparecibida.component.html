@@ -1,181 +1,188 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #b2dfdb;">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand" style="color: #333;">Sistema de Capacitaciones</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <button mat-button [matMenuTriggerFor]="menu1" class="btn btn-outline-blue">
+            PARAMETROS
+          </button>
+        </li>
+      </ul>
+
+    </div>
+
+    <mat-menu #menu1="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="SubMenu1" class="btn btn-outline-blue">TABLAS</button>
+    </mat-menu>
+
+    <mat-menu #menu2="matMenu">
+
+    </mat-menu>
+
+    <mat-menu #SubMenu1="matMenu">
+      <a mat-menu-item href="/caparecibida" class="dropdown-item" style="color: #333;">CAPACITACIONES RECIBIDAS</a>
+      <a mat-menu-item href="/empleados" class="dropdown-item" style="color: #333;">REGISTRO EMPLEADOS</a>
+      <a mat-menu-item href="/especialidad" class="dropdown-item" style="color: #333;">ESPECIALIDADES</a>
+      <a mat-menu-item href="/facultad" class="dropdown-item" style="color: #333;">FACULTADES</a>
+      <a mat-menu-item href="/niveledu" class="dropdown-item" style="color: #333;">NIVEL EDUCACION</a>
+      <a mat-menu-item href="/nomcentro" class="dropdown-item" style="color: #333;">REGISTRO DE CENTROS</a>
+      <a mat-menu-item href="/tipocapacitacion" class="dropdown-item" style="color: #333;">TIPO DE CAPACITACION</a>
+      <a mat-menu-item href="/tiponiveledu" class="dropdown-item" style="color: #333;">TIPO DE NIVEL EDUCACION</a>
+      <a mat-menu-item href="/titulo" class="dropdown-item" style="color: #333;">REGISTRO DE TITULO</a>
+    </mat-menu>
+
+    <mat-menu #SubMenu2="matMenu">
+      <a mat-menu-item href="/Html1" class="dropdown-item" style="color: #333;">Consultas 1</a>
+      <a mat-menu-item href="/Html2" class="dropdown-item" style="color: #333;">Consultas 2</a>
+      <a mat-menu-item href="/Html3" class="dropdown-item" style="color: #333;">Consultas 3</a>
+      <a mat-menu-item href="/Html4" class="dropdown-item" style="color: #333;">Consultas 4</a>
+      <a mat-menu-item href="/Html5" class="dropdown-item" style="color: #333;">Consultas 5</a>
+    </mat-menu>
+    <div class="float-right">
+      <button mat-button (click)="logout()" class="btn btn-outline-blue">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand">REGISTRO DE CAPACITACIONES RECIBIDAS</a>
+
+</nav>
 
 
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #b2dfdb;">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <a class="navbar-brand" style="color: #333;">Sistema de Capacitaciones</a>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <button mat-button [matMenuTriggerFor]="menu1" class="btn btn-outline-blue">
-              PARAMETROS
-            </button>
-          </li>
-        </ul>
-      
-      </div>
-  
-      <mat-menu #menu1="matMenu">
-        <button mat-menu-item [matMenuTriggerFor]="SubMenu1" class="btn btn-outline-blue">TABLAS</button>
-      </mat-menu>
-  
-      <mat-menu #menu2="matMenu">
-     
-      </mat-menu>
-  
-      <mat-menu #SubMenu1="matMenu">
-        <a mat-menu-item href="/caparecibida" class="dropdown-item" style="color: #333;">CAPACITACIONES RECIBIDAS</a>
-        <a mat-menu-item href="/empleados" class="dropdown-item" style="color: #333;">REGISTRO EMPLEADOS</a>
-        <a mat-menu-item href="/especialidad" class="dropdown-item" style="color: #333;">ESPECIALIDADES</a>
-        <a mat-menu-item href="/facultad" class="dropdown-item" style="color: #333;">FACULTADES</a>
-        <a mat-menu-item href="/niveledu" class="dropdown-item" style="color: #333;">NIVEL EDUCACION</a>
-        <a mat-menu-item href="/nomcentro" class="dropdown-item" style="color: #333;">REGISTRO DE CENTROS</a>
-        <a mat-menu-item href="/tipocapacitacion" class="dropdown-item" style="color: #333;">TIPO DE CAPACITACION</a>
-        <a mat-menu-item href="/tiponiveledu" class="dropdown-item" style="color: #333;">TIPO DE NIVEL EDUCACION</a>
-        <a mat-menu-item href="/titulo" class="dropdown-item" style="color: #333;">REGISTRO DE TITULO</a>
-      </mat-menu>
-  
-      <mat-menu #SubMenu2="matMenu">
-        <a mat-menu-item href="/Html1" class="dropdown-item" style="color: #333;">Consultas 1</a>
-        <a mat-menu-item href="/Html2" class="dropdown-item" style="color: #333;">Consultas 2</a>
-        <a mat-menu-item href="/Html3" class="dropdown-item" style="color: #333;">Consultas 3</a>
-        <a mat-menu-item href="/Html4" class="dropdown-item" style="color: #333;">Consultas 4</a>
-        <a mat-menu-item href="/Html5" class="dropdown-item" style="color: #333;">Consultas 5</a>
-      </mat-menu>
-      <div class="float-right">
-        <button mat-button (click)="logout()" class="btn btn-outline-blue">Logout</button>
+
+<div class="agregar_contenedor">
+  <div class="row mt-5">
+    <div class="card">
+      <div class="card-body">
+        <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="AgregarValor()" novalidate>
+          <div class="form-group">
+            <label for="" class="control-label" hidden>Registro No.</label>
+            <input type="text" readonly="readonly" [(ngModel)]="user.idcapa" name="idcapa" placeholder="No"
+              class="form-control" required hidden>
+          </div>
+
+          <div class="form-group">
+            <option>SELECCIONE EL EMPLEADO</option>
+            <select class="form-control" size="1" [(ngModel)]="user.CI" name="CI" required>
+              <option *ngFor="let lista of Empleados" value={{lista.CI}}>{{lista.nom1}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <option>SELECCIONE EL TITULO</option>
+            <select class="form-control" size="1" [(ngModel)]="user.idtitulo" name="idtitulo" required>
+              <option *ngFor="let lista of Titulo" value={{lista.idtitulo}}>{{lista.titulo}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <option>SELECCIONE EL TIPO DE CAPACITACION</option>
+            <select class="form-control" size="1" [(ngModel)]="user.idtipocapa" name="idtipocapa" required>
+              <option *ngFor="let lista of Tipocapacitacion" value={{lista.idtipocapa}}>{{lista.tipocapa}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="" class="control-label">FECHA INICIO</label>
+            <input type="date" [(ngModel)]="user.finicio" name="finicio" placeholder="SELECCIONE LA FECHA DE INICIO"
+              class="form-control" autofocus>
+          </div>
+          <div class="form-group">
+            <label for="" class="control-label">FECHA OBTENIDO</label>
+            <input type="date" [(ngModel)]="user.ffin" name="ffin" placeholder="SELECCIONE LA FECHA DE OBTENIDO"
+              class="form-control" autofocus>
+          </div>
+          <div class="form-group">
+            <option>SELECCIONE EL NOMBRE DEL CENTRO</option>
+            <select class="form-control" size="1" [(ngModel)]="user.idnomcentro" name="idnomcentro" required>
+              <option *ngFor="let lista of Nomcentro" value={{lista.idnomcentro}}>{{lista.nomcentro}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <option>SELECCIONE LA FACULTAD</option>
+            <select class="form-control" size="1" [(ngModel)]="user.idfacultad" name="idfacultad" required>
+              <option *ngFor="let lista of Facultad" value={{lista.idfacultad}}>{{lista.facultad}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="" class="control-label">TOMO</label>
+            <input type="text" [(ngModel)]="user.tomo" name="tomo" placeholder="DIGITE EL TOMO" class="form-control"
+              autofocus>
+          </div>
+          <div class="form-group">
+            <label for="" class="control-label">FOLIO</label>
+            <input type="text" [(ngModel)]="user.folio" name="folio" placeholder="DIGITE EL FOLIO" class="form-control"
+              autofocus>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary" formnovalidate value="Save"
+            onclick="javascript:alert('Registro Almacenado')">
+            Agregar
+          </button>
+          <br>
+          <br>
+          <div class="form-group">
+            <input type="text" class="form-control" name="filterPost"
+              placeholder="Digite la Capacitacion recibida que desea Buscar" [(ngModel)]="filterPost">
+          </div>
+          <br>
+          <button (click)="exportToExcel()" class="btn btn-secondary">Exportar a Excel</button>
+          <button class="btn btn-dark" (click)="openPDF()">Descargar PDF</button>`
+
+        </form>
       </div>
     </div>
-  </nav>
-
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand">REGISTRO DE CAPACITACIONES RECIBIDAS</a>
- 
-  </nav>
-  
-
-
-  <div class="agregar_contenedor">
-  <div class="row mt-5">
-  <div class="card">
-      <div class="card-body">
-          <form id="formulario" name="formulario" #f="ngForm" (ngSubmit)="AgregarValor()" novalidate >
-            <div class="form-group">
-              <label for="" class="control-label" hidden>Registro No.</label>
-                    <input type="text"  readonly="readonly"  [(ngModel)]="user.idcapa" name="idcapa" placeholder="No" class="form-control" required hidden>
-                    </div>                  
-  
-                    <div class="form-group">
-                      <option>SELECCIONE EL EMPLEADO</option>
-                        <select class="form-control" size="1" [(ngModel)]="user.CI" name="CI" required>
-                               <option *ngFor="let lista of Empleados" value={{lista.CI}}>{{lista.nom1}}</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <option>SELECCIONE EL TITULO</option>
-                        <select class="form-control" size="1" [(ngModel)]="user.idtitulo" name="idtitulo" required>
-                               <option *ngFor="let lista of Titulo" value={{lista.idtitulo}}>{{lista.titulo}}</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <option>SELECCIONE EL TIPO DE CAPACITACION</option>
-                        <select class="form-control" size="1" [(ngModel)]="user.idtipocapa" name="idtipocapa" required>
-                               <option *ngFor="let lista of Tipocapacitacion" value={{lista.idtipocapa}}>{{lista.tipocapa}}</option>
-                      </select>
-                    </div>
-                <div class="form-group">
-                    <label for="" class="control-label">FECHA INICIO</label>
-                    <input type="date"  [(ngModel)]="user.finicio"  name="finicio" placeholder="SELECCIONE LA FECHA DE INICIO"  class="form-control" autofocus>
-                </div>
-                <div class="form-group">
-                    <label for="" class="control-label">FECHA OBTENIDO</label>
-                    <input type="date"  [(ngModel)]="user.ffin"  name="ffin" placeholder="SELECCIONE LA FECHA DE OBTENIDO"  class="form-control" autofocus>
-                </div>
-                <div class="form-group">
-                  <option>SELECCIONE EL NOMBRE DEL CENTRO</option>
-                    <select class="form-control" size="1" [(ngModel)]="user.idnomcentro" name="idnomcentro" required>
-                           <option *ngFor="let lista of Nomcentro" value={{lista.idnomcentro}}>{{lista.nomcentro}}</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <option>SELECCIONE LA FACULTAD</option>
-                    <select class="form-control" size="1" [(ngModel)]="user.idfacultad" name="idfacultad" required>
-                           <option *ngFor="let lista of Facultad" value={{lista.idfacultad}}>{{lista.facultad}}</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                    <label for="" class="control-label">TOMO</label>
-                    <input type="text"  [(ngModel)]="user.tomo"  name="tomo" placeholder="DIGITE EL TOMO"  class="form-control" autofocus>
-                </div>
-                <div class="form-group">
-                    <label for="" class="control-label">FOLIO</label>
-                    <input type="text"  [(ngModel)]="user.folio"  name="folio" placeholder="DIGITE EL FOLIO"  class="form-control" autofocus>
-                </div>
-                <br>
-            <button type="submit" class="btn btn-primary" formnovalidate value="Save"  onclick="javascript:alert('Registro Almacenado')">
-                Agregar
-            </button>
-            <br>
-            <br>
-            <div class="form-group">
-                <input type="text" class="form-control" name="filterPost" placeholder="Digite la Capacitacion recibida que desea Buscar" [(ngModel)]="filterPost">
-              </div>
-              <br>
-              <button (click)="exportToExcel()" class="btn btn-secondary">Exportar a Excel</button>
-              <button class="btn btn-dark" (click)="openPDF()">Descargar PDF</button>`
-      
-          </form>
-      </div>
-  </div>
   </div>
 </div>
-  
 
 
- <div class="container">  
-    <div class="row mt-25">          
-   <table class="table table-borbered table-hover" id="tabla">
-     <thead>
+
+<div class="container">
+  <div class="row mt-25">
+    <table class="table table-borbered table-hover" id="tabla">
+      <thead>
         <tr>
-            <th>ID CAPA</th>
-            <th>CI</th>
-            <th>ID TITULO</th>
-            <th>ID TIPO CAPAC.</th>
-            <th>FECHA INICIO</th>
-            <th>FECHA FIN</th>
-            <th>ID NOM CENTRO</th>
-            <th>ID FACULTAD</th>
-            <th>TOMO</th>
-            <th>FOLIO</th>
-            <th>ESTADO</th>
+          <th>ID CAPA</th>
+          <th>CI</th>
+          <th>ID TITULO</th>
+          <th>ID TIPO CAPAC.</th>
+          <th>FECHA INICIO</th>
+          <th>FECHA FIN</th>
+          <th>ID NOM CENTRO</th>
+          <th>ID FACULTAD</th>
+          <th>TOMO</th>
+          <th>FOLIO</th>
+          <th>ESTADO</th>
         </tr>
-  
+
       </thead>
-    <tbody >
-  
-                <tr *ngFor="let User of TUser | filtercaparecibida:filterPost">
-                    <td >{{User.idcapa}}</td>
-                    <td >{{User.CI}}</td>
-                    <td >{{User.idtitulo}}</td>
-                    <td >{{User.idtipocapa}}</td>
-                    <td >{{User.finicio}}</td>
-                    <td >{{User.ffin}}</td>
-                    <td >{{User.idnomcentro}}</td>
-                    <td >{{User.idfacultad}}</td>
-                    <td >{{User.tomo}}</td>
-                    <td >{{User.folio}}</td>
-                    <td >{{User.estado}}</td>
-                    <td>  <button  class="btn btn-danger"  (click)="EliminarData(User.idcapa)" onclick="javascript:alert('Registro Eliminado')" >Eliminar</button> </td>
-                    
-                  <button  class="btn btn-success" [routerLink]="['/caparecibida/edit', User.idcapa]">
-                     Actualizar
-                </button>
-                    
-                  </tr>
-  
-     </tbody>
-   </table>
-</div> 
+      <tbody>
+
+        <tr *ngFor="let User of TUser | filtercaparecibida:filterPost">
+          <td>{{User.idcapa}}</td>
+          <td>{{User.CI}}</td>
+          <td>{{User.idtitulo}}</td>
+          <td>{{User.idtipocapa}}</td>
+          <td>{{User.finicio}}</td>
+          <td>{{User.ffin}}</td>
+          <td>{{User.idnomcentro}}</td>
+          <td>{{User.idfacultad}}</td>
+          <td>{{User.tomo}}</td>
+          <td>{{User.folio}}</td>
+          <td>{{User.estado}}</td>
+          <td> <button class="btn btn-danger" (click)="EliminarData(User.idcapa)"
+              onclick="javascript:alert('Registro Eliminado')">Eliminar</button> </td>
+
+          <button class="btn btn-success" [routerLink]="['/caparecibida/edit', User.idcapa]">
+            Actualizar
+          </button>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
 </div>

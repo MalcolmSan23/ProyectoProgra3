@@ -1,0 +1,57 @@
+<div class="container mt-4">
+    <div class="table-responsive">
+        <table class="table table-striped" id="tabla">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">CI</th>
+                    <th scope="col">Cipadre</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Lugar de Nacimiento</th>
+                    <th scope="col">Teléfono Domicilio</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Etnia</th>
+                    <th scope="col">Estado Civil</th>
+                    <th scope="col">Color de Pelo</th>
+                    <th scope="col">Estatura</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Nivel Educativo</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Contrato</th>
+                    <th scope="col">Departamento</th>
+                    <th scope="col">Ubicación</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Clave</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let User of TUser | filterempleados:filterPost">
+                    <td>{{ User.CI }}</td>
+                    <td>{{ User.cipadre }}</td>
+                    <td>{{ User.nom1 }} {{ User.nom2 }}</td>
+                    <td>{{ User.ape1 }} {{ User.ape2 }}</td>
+                    <td>{{ User.sexo }}</td>
+                    <td>{{ User.dir }}</td>
+                    <td>{{ User.lugarnac }}</td>
+                    <td>{{ User.teldomicilio }}</td>
+                    <td>{{ User.email }}</td>
+                    <td>{{ User.etnia }}</td>
+                    <td>{{ User.estcivil }}</td>
+                    <td>{{ User.colorpelo }}</td>
+                    <td>{{ User.estatura }}</td>
+                    <td>{{ User.peso }}</td>
+                    <td>{{ User.nombrenivel }}</td>
+                    <td>{{ User.cargo }}</td>
+                    <td>{{ User.contrato }}</td>
+                    <td>{{ User.departamento }}</td>
+                    <td>{{ User.ubicacion }}</td>
+                    <td>{{ User.estado }}</td>
+                    <td>{{ User.clave }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

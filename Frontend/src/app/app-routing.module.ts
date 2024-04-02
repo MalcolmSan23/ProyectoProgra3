@@ -21,6 +21,8 @@ import { TituloEditComponent } from './Components/titulo-edit/titulo-edit.compon
 import { NavegacionComponent } from './Components/navegacion/navegacion.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './Components/login/login.component';
+import { EmpleadosconsulComponent } from './Components/empleadosconsul/empleadosconsul.component';
+
 
 const routes: Routes = [
   {
@@ -33,6 +35,12 @@ const routes: Routes = [
     component: EmpleadosComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'empleadosconsul',
+    component: EmpleadosconsulComponent,
+    canActivate: [AuthGuard],
+  },
+    
   {
     path: 'empleados/edit/:id',
     component: EmpleadosEditComponent,

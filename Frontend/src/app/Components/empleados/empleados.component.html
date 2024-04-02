@@ -1,5 +1,4 @@
 
-
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #b2dfdb;">
   <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,16 +12,27 @@
             PARAMETROS
           </button>
         </li>
+        <!-- Agrega el botón de Consultas -->
+        <li class="nav-item">
+          <button mat-button [matMenuTriggerFor]="menu2" class="btn btn-outline-blue">
+            CONSULTAS
+          </button>
+        </li>
       </ul>
-    
     </div>
+
+    <!-- Define el menú para las consultas -->
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="SubMenu2" class="btn btn-outline-blue">Consultas</button>
+    </mat-menu>
+
+    <!-- Define el menú de las consultas -->
+    <mat-menu #SubMenu2="matMenu">
+      <a mat-menu-item href="/empleadosconsul" class="dropdown-item" style="color: #333;">Empleados</a>
+    </mat-menu>
 
     <mat-menu #menu1="matMenu">
       <button mat-menu-item [matMenuTriggerFor]="SubMenu1" class="btn btn-outline-blue">TABLAS</button>
-    </mat-menu>
-
-    <mat-menu #menu2="matMenu">
-   
     </mat-menu>
 
     <mat-menu #SubMenu1="matMenu">
@@ -37,18 +47,17 @@
       <a mat-menu-item href="/titulo" class="dropdown-item" style="color: #333;">REGISTRO DE TITULO</a>
     </mat-menu>
 
-    <mat-menu #SubMenu2="matMenu">
-      <a mat-menu-item href="/Html1" class="dropdown-item" style="color: #333;">Consultas 1</a>
-      <a mat-menu-item href="/Html2" class="dropdown-item" style="color: #333;">Consultas 2</a>
-      <a mat-menu-item href="/Html3" class="dropdown-item" style="color: #333;">Consultas 3</a>
-      <a mat-menu-item href="/Html4" class="dropdown-item" style="color: #333;">Consultas 4</a>
-      <a mat-menu-item href="/Html5" class="dropdown-item" style="color: #333;">Consultas 5</a>
-    </mat-menu>
     <div class="float-right">
       <button mat-button (click)="logout()" class="btn btn-outline-blue">Logout</button>
     </div>
   </div>
 </nav>
+
+
+
+
+
+
 
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand">REGISTRO DE EMPLEADOS</a>

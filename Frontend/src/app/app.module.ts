@@ -38,10 +38,11 @@ import { NavegacionComponent } from './Components/navegacion/navegacion.componen
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './Components/login/login.component';
+import { EmpleadosconsulComponent } from './Components/empleadosconsul/empleadosconsul.component';
 
 
 @NgModule({
-  declarations: [AppComponent, EmpleadosComponent, EmpleadosEditComponent, FilterempleadosPipe, NivelEduComponent, NivelEduEditComponent, EspecialidadComponent, EspecialidadEditComponent, NomcentroComponent, NomcentroEditComponent, TiponiveleduComponent, TiponiveleduEditComponent, TipocapacitacionComponent, TipocapacitacionEditComponent, FacultadComponent, FacultadEditComponent, TituloComponent, TituloEditComponent, CaparecibidaComponent, CaparecibidaEditComponent, FiltercaparecibidaPipe, FilterespecialidadPipe, FilterfacultadPipe, FilterniveleduPipe, FilternomcentroPipe, FiltertipocapacitacionPipe, FiltertiponiveleduPipe, FiltertituloPipe, NavegacionComponent, LoginComponent],
+  declarations: [AppComponent, EmpleadosComponent, EmpleadosEditComponent, FilterempleadosPipe, NivelEduComponent, NivelEduEditComponent, EspecialidadComponent, EspecialidadEditComponent, NomcentroComponent, NomcentroEditComponent, TiponiveleduComponent, TiponiveleduEditComponent, TipocapacitacionComponent, TipocapacitacionEditComponent, FacultadComponent, FacultadEditComponent, TituloComponent, TituloEditComponent, CaparecibidaComponent, CaparecibidaEditComponent, FiltercaparecibidaPipe, FilterespecialidadPipe, FilterfacultadPipe, FilterniveleduPipe, FilternomcentroPipe, FiltertipocapacitacionPipe, FiltertiponiveleduPipe, FiltertituloPipe, NavegacionComponent, LoginComponent, EmpleadosconsulComponent],
   imports: [BrowserModule,
      AppRoutingModule,
      HttpClientModule,
